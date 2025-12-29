@@ -148,6 +148,7 @@ function initPage(user) {
 }
 
 
+
 function updateDashboardStats() {
   const stats = [DATA.students.length, DATA.courses.length, DATA.faculty.length, 7];
   document.querySelectorAll('.stat-value').forEach((el, i) => el.textContent = stats[i]);
