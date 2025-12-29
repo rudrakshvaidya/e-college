@@ -46,19 +46,38 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function handleLogin() {
-  document.querySelector('form').addEventListener('submit', function(e) {
+  const form = document.querySelector('form');
+  if (!form) return;
+  
+  form.addEventListener('submit', function(e) {
     e.preventDefault();
-    const username = document.querySelector('input[type="text"]').value;
-    const password = document.querySelector('input[type="password"]').value;
-    if (USERS[username] && USERS[username] === password) {
+    const usernameInput = document.querySelector('input[type="text"]');
+    const passwordInput = document.querySelector('input[type="password"]');
+    
+    if (!usernameInput || !passwordInput) {
+      alert('Login form error');
+      return;
+    }
+    
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+    
+    console.log('Login attempt:', username, password); // DEBUG
+    
+    if (USERS[username] && USERS[password] === password) {
       localStorage.setItem('loggedIn', 'true');
       localStorage.setItem('user', username);
+      console.log('Login success, redirecting...'); // DEBUG
       window.location.href = 'dashboard.html';
     } else {
-      alert('❌ Invalid!\nadmin/admin123\nstudent/student123\nfaculty/faculty123');
+      alert('❌ Wrong credentials!\n\n' +
+            '👨‍💼 admin / admin123\n' +
+            '👨‍🎓 student / student123\n' +
+            '👨‍🏫 faculty / faculty123');
     }
   });
 }
+
 
 function initRole(role) {
   const topbar = document.querySelector('.topbar');
