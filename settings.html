@@ -1,0 +1,81 @@
+=<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | E-College</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-badge">E</div>
+      <span class="logo-text">E-College</span>
+    </div>
+    <nav class="top-nav">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="students.html" class="nav-link">Students</a>
+      <a href="courses.html" class="nav-link">Courses</a>
+      <a href="faculty.html" class="nav-link">Faculty</a>
+      <a href="settings.html" class="nav-link active">Settings</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="page-header">
+      <h1 class="page-title">Settings</h1>
+      <p class="page-subtitle">College configuration</p>
+    </div>
+
+    <div class="settings-panel">
+      <div class="settings-section">
+        <h3>General Information</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>College Name</label>
+            <input type="text" value="E-College University">
+          </div>
+          <div class="form-group">
+            <label>Contact Email</label>
+            <input type="email" value="admin@ecollege.edu">
+          </div>
+          <div class="form-group">
+            <label>Phone</label>
+            <input type="text" value="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Established</label>
+            <input type="number" value="1995">
+          </div>
+        </div>
+      </div>
+      
+      <div class="settings-section">
+        <h3>Academic Year</h3>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Current Semester</label>
+            <select>
+              <option>Semester 1 (2025)</option>
+              <option>Semester 2 (2025)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Registration Open</label>
+            <label class="toggle-switch">
+              <input type="checkbox" checked>
+              <span class="slider"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions" style="margin-top: 32px;">
+      <button class="btn primary">Save Settings</button>
+    </div>
+  </main>
+</body>
+</html>
