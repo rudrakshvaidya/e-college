@@ -31,72 +31,70 @@
       </div>
       <button class="btn primary add-btn" data-target="student-modal">+ Add New Student</button>
     </div>
-  <div class="table-container" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
-  <table class="table" style="width: 100%; border-collapse: collapse;">
 
-   <div class="toolbar row-between" style="margin-bottom: 20px;">
-  <input class="field-input" placeholder="🔍 Search students by name or email..." id="student-search" style="max-width: 300px;">
-  <select class="field-input" style="max-width: 200px;">
-    <option>All Departments</option>
-    <option>Computer Science</option>
-    <option>Mathematics</option>
-    <option>Physics</option>
-  </select>
-</div>
+    <!-- FIXED: Toolbar moved UP -->
+    <div class="toolbar row-between" style="margin-bottom: 20px;">
+      <input class="field-input" placeholder="🔍 Search students..." id="student-search" style="max-width: 300px;">
+      <select class="field-input" style="max-width: 200px;">
+        <option>All Departments</option>
+        <option>Computer Science</option>
+        <option>Mathematics</option>
+        <option>Physics</option>
+      </select>
+    </div>
 
-
-    <div class="table-container">
-      <table class="table">
+    <!-- FIXED: Single table container -->
+    <div class="table-container" style="background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+      <table class="table" style="width: 100%; border-collapse: collapse;">
         <thead>
           <tr><th>ID</th><th>Name</th><th>Department</th><th>Email</th><th>Year</th><th>Status</th><th>Actions</th></tr>
         </thead>
         <tbody id="students-table">
-          <!-- Hardcoded data populated by JS -->
+          <!-- JS populates here -->
         </tbody>
       </table>
     </div>
   </main>
 
-  <!-- Student Modal -->
+  <!-- Student Modal - FIXED structure -->
   <div id="student-modal" class="modal">
-  <div class="modal-overlay"></div>
-  <div class="modal-content" style="max-width: 480px;">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
-      <h2 style="margin:0;font-size:24px;font-weight:600;">Add New Student</h2>
-      <button class="close-modal" style="font-size:28px;">×</button>
+    <div class="modal-overlay"></div>
+    <div class="modal-content" style="max-width: 480px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px;">
+        <h2 style="margin:0;font-size:24px;font-weight:600;">Add New Student</h2>
+        <button class="close-modal" style="font-size:28px;color:#6b7280;background:none;border:none;cursor:pointer;">×</button>
+      </div>
+      <form id="student-form">
+        <div style="display:grid;gap:20px;">
+          <div>
+            <label style="display:block;font-weight:500;margin-bottom:8px;color:#374151;">Full Name</label>
+            <input type="text" name="name" id="student-name" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;font-size:15px;">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div>
+              <label style="display:block;font-weight:500;margin-bottom:8px;color:#374151;">Department</label>
+              <select name="dept" id="student-dept" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;font-size:15px;">
+                <option>Computer Science</option><option>Mathematics</option><option>Physics</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block;font-weight:500;margin-bottom:8px;color:#374151;">Year</label>
+              <select name="year" id="student-year" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;font-size:15px;">
+                <option>1st</option><option>2nd</option><option>3rd</option><option>4th</option>
+              </select>
+            </div>
+          </div>
+          <div>
+            <label style="display:block;font-weight:500;margin-bottom:8px;color:#374151;">Email</label>
+            <input type="email" name="email" id="student-email" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;font-size:15px;">
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;margin-top:28px;justify-content:flex-end;">
+          <button type="button" class="btn ghost" onclick="hideModal()" style="padding:12px 24px;">Cancel</button>
+          <button type="submit" class="btn primary" style="padding:12px 24px;background:#3b82f6;border:none;">Add Student</button>
+        </div>
+      </form>
     </div>
-    <form id="student-form">
-      <div style="display:grid;gap:20px;">
-        <div>
-          <label style="display:block;font-weight:500;margin-bottom:8px;color:#374151;">Full Name</label>
-          <input type="text" name="name" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;font-size:15px;">
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-          <div>
-            <label style="display:block;font-weight:500;margin-bottom:8px;color:#374151;">Department</label>
-            <select name="dept" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;font-size:15px;">
-              <option>Computer Science</option><option>Mathematics</option><option>Physics</option>
-            </select>
-          </div>
-          <div>
-            <label style="display:block;font-weight:500;margin-bottom:8px;color:#374151;">Year</label>
-            <select name="year" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;font-size:15px;">
-              <option>1st</option><option>2nd</option><option>3rd</option><option>4th</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label style="display:block;font-weight:500;margin-bottom:8px;color:#374151;">Email</label>
-          <input type="email" name="email" required style="width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:12px;font-size:15px;">
-        </div>
-      </div>
-      <div style="display:flex;gap:12px;margin-top:28px;justify-content:flex-end;">
-        <button type="button" class="btn ghost" onclick="hideModal()" style="padding:12px 24px;">Cancel</button>
-        <button type="submit" class="btn primary" style="padding:12px 24px;background:#3b82f6;">Add Student</button>
-      </div>
-    </form>
   </div>
-</div>
-
 </body>
 </html>
