@@ -29,10 +29,10 @@
         <h1 class="page-title">Courses</h1>
         <p class="page-subtitle">Manage courses and enrollment</p>
       </div>
-      <button class="btn primary add-btn" data-page="courses" data-target="course-modal">+ Add New Course</button>
+      <button class="btn primary add-btn" data-page="courses" style="display:none;">+ Add New Course</button>
     </div>
 
-    <div class="toolbar row-between">
+    <div class="toolbar row-between" style="margin-bottom:24px;">
       <input class="field-input" placeholder="🔍 Search courses..." id="course-search" style="max-width:300px;">
       <select class="field-input" style="max-width:200px;">
         <option>All Departments</option>
@@ -42,44 +42,12 @@
       </select>
     </div>
 
-    <div id="courses-grid" class="card-grid"></div>
-  </main>
-
-  <!-- Course Modal -->
-  <div id="course-modal" class="modal">
-    <div class="modal-overlay"></div>
-    <div class="modal-content">
-      <button class="close-modal">×</button>
-      <h2>Add New Course</h2>
-      <form id="course-form">
-        <div class="form-group">
-          <label>Course Name</label>
-          <input type="text" name="name" required>
-        </div>
-        <div class="form-group">
-          <label>Course Code</label>
-          <input type="text" name="code" required>
-        </div>
-        <div class="form-group">
-          <label>Department</label>
-          <select name="dept" required>
-            <option>CS</option><option>Math</option><option>Physics</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Faculty</label>
-          <input type="text" name="faculty" required>
-        </div>
-        <div class="form-group row-between">
-          <label>Total Seats</label>
-          <input type="number" name="seats" required style="max-width:120px;">
-        </div>
-        <div class="form-actions">
-          <button type="button" class="btn ghost" onclick="hideModal()">Cancel</button>
-          <button type="submit" class="btn primary">Add Course</button>
-        </div>
-      </form>
+    <div id="courses-grid" class="card-grid">
+      <!-- JS will populate -->
+      <div style="grid-column:1/-1;text-align:center;padding:60px;color:#6b7280;">
+        Loading courses...
+      </div>
     </div>
-  </div>
+  </main>
 </body>
 </html>
