@@ -183,7 +183,32 @@ function renderCourses() {
     </div>
   `).join('');
 }
+function showModal(id) {
+  const modal = document.getElementById(id);
+  if (modal) {
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+}
 
+function hideModal() {
+  document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+  document.body.style.overflow = '';
+}
+
+// Close modals on click
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('close-modal') || e.target.classList.contains('modal-overlay')) {
+    hideModal();
+  }
+});
+
+// Add student modal button handler
+document.addEventListener('click', function(e) {
+  if (e.target.classList.contains('add-btn') && e.target.dataset.target) {
+    showModal(e.target.dataset.target);
+  }
+});
 
 function renderFaculty() {
   const grid = document.getElementById('faculty-grid');
