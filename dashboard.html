@@ -7,4 +7,116 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-badge">E</div>
+      <span class="logo-text">E-College</span>
+    </div>
+    <nav class="top-nav">
+      <a href="dashboard.html" class="nav-link active">Dashboard</a>
+      <a href="students.html" class="nav-link">Students</a>
+      <a href="courses.html" class="nav-link">Courses</a>
+      <a href="faculty.html" class="nav-link">Faculty</a>
+      <a href="settings.html" class="nav-link">Settings</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="page-header">
+      <h1 class="page-title">Dashboard</h1>
+      <p class="page-subtitle">Welcome to E-College management system</p>
+    </div>
+
+    <section class="cards-row">
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Total Students</span>
+          <div class="stat-icon purple"></div>
+        </div>
+        <div class="stat-main">
+          <span class="stat-value">1,234</span>
+          <span class="stat-meta">+17%</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Total Courses</span>
+          <div class="stat-icon blue"></div>
+        </div>
+        <div class="stat-main">
+          <span class="stat-value">49</span>
+          <span class="stat-meta">+15</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Active Faculty</span>
+          <div class="stat-icon green"></div>
+        </div>
+        <div class="stat-main">
+          <span class="stat-value">28</span>
+          <span class="stat-meta">+12</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-top">
+          <span class="stat-label">Notices</span>
+          <div class="stat-icon orange"></div>
+        </div>
+        <div class="stat-main">
+          <span class="stat-value">7</span>
+          <span class="stat-meta">New</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel-grid">
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Recent Notices</h2>
+        </div>
+        <ul class="notice-list">
+          <li>
+            <span class="dot red"></span>
+            <div class="notice-text">
+              <span>Mid term Examination Schedule</span>
+              <small>2024-03-15</small>
+            </div>
+            <a href="#" class="link">View Details</a>
+          </li>
+          <li>
+            <span class="dot yellow"></span>
+            <div class="notice-text">
+              <span>Library Hours Extended</span>
+              <small>2024-01-14</small>
+            </div>
+            <a href="#" class="link">View Details</a>
+          </li>
+          <li>
+            <span class="dot green"></span>
+            <div class="notice-text">
+              <span>New Course Registration Open</span>
+              <small>2024-01-13</small>
+            </div>
+            <a href="#" class="link">View Details</a>
+          </li>
+        </ul>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <h2>Quick Actions</h2>
+        </div>
+        <div class="quick-actions">
+          <a class="btn primary w-full" href="students.html">Add New Student</a>
+          <a class="btn primary w-full" href="courses.html">Create Course</a>
+          <a class="btn primary w-full" href="faculty.html">Add Faculty</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
+
