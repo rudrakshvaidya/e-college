@@ -8,7 +8,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <script defer src="script.js"></script> <!-- MOVED TO BOTTOM -->
 </head>
 <body class="auth-body">
   <div class="auth-card">
@@ -17,12 +16,12 @@
       <span class="logo-text">E-College</span>
     </div>
     <h1 class="auth-title">Login to E-College</h1>
-    <form>
+    <form id="login-form">
       <label class="field-label">Username</label>
-      <input class="field-input" type="text" name="username" autocomplete="username" placeholder="Enter username">
+      <input class="field-input" type="text" id="username" placeholder="admin">
 
       <label class="field-label">Password</label>
-      <input class="field-input" type="password" name="password" autocomplete="current-password" placeholder="Enter password">
+      <input class="field-input" type="password" id="password" placeholder="admin123">
 
       <div class="field-row">
         <label class="checkbox">
@@ -43,5 +42,28 @@
       </p>
     </form>
   </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      
+      const validUsers = {
+        'admin': 'admin123',
+        'student': 'student123',
+        'faculty': 'faculty123'
+      };
+      
+      if (validUsers[username] && validUsers[username] === password) {
+        localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('user', username);
+        window.location.href = 'dashboard.html';
+      } else {
+        alert('❌ Wrong credentials!\n\n👨‍💼 admin/admin123\n👨‍🎓 student/student123\n👨‍🏫 faculty/faculty123');
+      }
+    });
+  </script>
 </body>
 </html>
