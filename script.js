@@ -91,6 +91,12 @@ function initPage(user) {
   if (document.getElementById('students-table')) renderStudents();
   if (document.getElementById('courses-grid')) renderCourses();
   if (document.getElementById('faculty-grid')) renderFaculty();
+  // Add after existing initPage content
+const courseSearch = document.getElementById('course-search');
+if (courseSearch) {
+  courseSearch.addEventListener('input', renderCourses);
+}
+
 }
 
 function updateDashboardStats() {
