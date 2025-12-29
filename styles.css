@@ -67,3 +67,25 @@ body { margin: 0; font-family: "Inter", sans-serif; background: var(--bg); color
 .btn.w-full { width: 100%; }
 .auth-links { margin-top: 12px; display: flex; justify-content: space-between; font-size: 12px; }
 .auth-foot { margin-top: 18px; text-align: center; font-size: 13px; color: var(--text-muted); }
+/* Modals */
+.modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 1000; }
+.modal.active { display: flex; align-items: center; justify-content: center; }
+.modal-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); backdrop-filter: blur(4px); }
+.modal-content { background: white; border-radius: 16px; padding: 32px; max-width: 500px; width: 90%; max-height: 90vh; overflow-y: auto; position: relative; box-shadow: 0 25px 50px rgba(0,0,0,0.25); }
+.close-modal { position: absolute; top: 16px; right: 20px; background: none; border: none; font-size: 24px; cursor: pointer; color: #6b7280; }
+
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; font-weight: 500; margin-bottom: 6px; color: var(--text-main); }
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 14px; transition: border-color 0.2s; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: #6366f1; }
+
+/* Table Actions */
+.edit-link, .delete-link { padding: 4px 8px; border-radius: 4px; text-decoration: none; font-size: 12px; margin-right: 8px; }
+.edit-link { background: #dbeafe; color: #1e40af; }
+.delete-link { background: #fee2e2; color: #dc2626; }
+
+/* Status Badges */
+.status-badge { padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 500; }
+.status-active { background: #dcfce7; color: #166534; }
+.status-inactive { background: #fee2e2; color: #dc2626; }
+
