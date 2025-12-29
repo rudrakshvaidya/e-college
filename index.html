@@ -44,26 +44,34 @@
   </div>
 
   <script>
-    document.getElementById('login-form').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const username = document.getElementById('username').value;
-      const password = document.getElementById('password').value;
-      
-      const validUsers = {
-        'admin': 'admin123',
-        'student': 'student123',
-        'faculty': 'faculty123'
-      };
-      
-      if (validUsers[username] && validUsers[username] === password) {
-        localStorage.setItem('loggedIn', 'true');
-        localStorage.setItem('user', username);
-        window.location.href = 'dashboard.html';
-      } else {
-        alert('❌ Wrong credentials!\n\n👨‍💼 admin/admin123\n👨‍🎓 student/student123\n👨‍🏫 faculty/faculty123');
-      }
-    });
-  </script>
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('login-form');
+  const username = document.getElementById('username');
+  const password = document.getElementById('password');
+  
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    console.log('Username:', username.value);
+    console.log('Password:', password.value);
+    
+    if (username.value === 'admin' && password.value === 'admin123') {
+      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('user', 'admin');
+      window.location.href = 'dashboard.html';
+    } else if (username.value === 'student' && password.value === 'student123') {
+      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('user', 'student');
+      window.location.href = 'dashboard.html';
+    } else if (username.value === 'faculty' && password.value === 'faculty123') {
+      localStorage.setItem('loggedIn', 'true');
+      localStorage.setItem('user', 'faculty');
+      window.location.href = 'dashboard.html';
+    } else {
+      alert('Wrong! Try: admin/admin123');
+    }
+  });
+});
+</script>
+
 </body>
 </html>
