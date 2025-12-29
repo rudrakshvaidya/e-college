@@ -30,7 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const user = localStorage.getItem('user');
   const loggedIn = localStorage.getItem('loggedIn');
   
-  if (document.querySelector('.auth-body')) {
+  if (document.querySelector('form')) {
+
     handleLogin();
     return;
   }
