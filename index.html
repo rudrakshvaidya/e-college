@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script defer src="script.js"></script>
   <title>Login | E-College</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script> <!-- MOVED TO BOTTOM -->
 </head>
 <body class="auth-body">
   <div class="auth-card">
@@ -19,10 +19,10 @@
     <h1 class="auth-title">Login to E-College</h1>
     <form>
       <label class="field-label">Username</label>
-      <input class="field-input" type="text" placeholder="Enter username">
+      <input class="field-input" type="text" name="username" autocomplete="username" placeholder="Enter username">
 
       <label class="field-label">Password</label>
-      <input class="field-input" type="password" placeholder="Enter password">
+      <input class="field-input" type="password" name="password" autocomplete="current-password" placeholder="Enter password">
 
       <div class="field-row">
         <label class="checkbox">
