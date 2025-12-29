@@ -88,14 +88,46 @@ function initRole(role) {
 
 function initPage(user) {
   updateDashboardStats();
-  if (document.getElementById('students-table')) renderStudents();
-  if (document.getElementById('courses-grid')) renderCourses();
-  if (document.getElementById('faculty-grid')) renderFaculty();
-  // Add after existing initPage content
-const courseSearch = document.getElementById('course-search');
-if (courseSearch) {
-  courseSearch.addEventListener('input', renderCourses);
+  
+  // Students page
+  if (document.getElementById('students-table')) {
+    renderStudents();
+    const studentForm = document.getElementById('student-form');
+    if (studentForm) {
+      studentForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const formData = new FormData(this);
+        const newStudent = {
+          id: 'STU' + (DATA.students.length + 1).toString().padStart(3, '0'),
+          name: formData.get('name'),
+          dept: formData.get('dept'),
+          email: formData.get('email'),
+          year: formData.get('year'),
+          status: 'Active'
+        };
+        DATA.students.unshift(newStudent);
+        renderStudents();
+        hideModal();
+        alert('✅ Student added: ' + newStudent.name);
+      });
+    }
+    const studentSearch = document.getElementById('student-search');
+    if (studentSearch) studentSearch.addEventListener('input', renderStudents);
+  }
+  
+  // Courses page
+  if (document.getElementById('courses-grid')) {
+    renderCourses();
+    const courseSearch = document.getElementById('course-search');
+    if (courseSearch) courseSearch.addEventListener('input', renderCourses);
+  }
+  
+  // Faculty page
+  if (document.getElementById('faculty-grid')) {
+    renderFaculty();
+  }
 }
+
 
 }
 
