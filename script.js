@@ -248,4 +248,30 @@ function renderFaculty() {
     </div>
   `).join('');
 }
+// FIX STUDENT FORM (add before closing </script>)
+document.addEventListener('DOMContentLoaded', function() {
+  const studentForm = document.getElementById('student-form');
+  if (studentForm && window.location.pathname.includes('students.html')) {
+    studentForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      const name = document.getElementById('student-name')?.value;
+      const dept = document.getElementById('student-dept')?.value;
+      const email = document.getElementById('student-email')?.value;
+      const year = document.getElementById('student-year')?.value;
+      
+      if (name && dept && email && year) {
+        const newStudent = {
+          id: 'STU' + (DATA.students.length + 1).toString().padStart(3, '0'),
+          name, dept, email, year, status: 'Active'
+        };
+        DATA.students.unshift(newStudent);
+        renderStudents();
+        hideModal();
+        alert('✅ Added: ' + name);
+      }
+    });
+  }
+});
 
