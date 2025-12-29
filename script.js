@@ -115,24 +115,37 @@ function renderStudents() {
 
 function renderCourses() {
   const grid = document.getElementById('courses-grid');
-  grid.innerHTML = DATA.courses.map(c => `
-    <div class="course-card">
-      <div class="course-header">
-        <h3>${c.name}</h3>
-        <span class="course-code">${c.code}</span>
+  if (!grid) return;
+  
+  const search = document.getElementById('course-search')?.value.toLowerCase() || '';
+  const filtered = DATA.courses.filter(c => 
+    c.name.toLowerCase().includes(search) || c.code.toLowerCase().includes(search)
+  );
+  
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px;color:#6b7280;">No courses found</div>';
+    return;
+  }
+  
+  grid.innerHTML = filtered.map(c => `
+    <div class="course-card" style="background:white;border-radius:12px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.08);">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:16px;">
+        <h3 style="margin:0;font-size:18px;font-weight:600;">${c.name}</h3>
+        <span style="background:#e0e7ff;color:#4f46e5;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;">${c.code}</span>
       </div>
-      <p><strong>Faculty:</strong> ${c.faculty}</p>
-      <p><strong>Dept:</strong> ${c.dept}</p>
-      <div class="progress-bar">
-        <div class="progress-fill" style="width: ${c.progress}%"></div>
+      <p style="margin:8px 0;color:#374151;"><strong>Faculty:</strong> ${c.faculty}</p>
+      <p style="margin:8px 0;color:#374151;"><strong>Dept:</strong> ${c.dept}</p>
+      <div style="height:8px;background:#f1f5f9;border-radius:4px;overflow:hidden;margin:16px 0;">
+        <div style="height:100%;background:linear-gradient(90deg,#10b981,#34d399);border-radius:4px;width:${c.progress}%;"></div>
       </div>
-      <div style="display:flex;gap:8px;margin-top:12px;">
-        <span style="font-size:12px;color:#6b7280;">${c.seats}</span>
-        <span style="font-size:12px;font-weight:600;">${c.progress}%</span>
+      <div style="display:flex;justify-content:space-between;font-size:13px;">
+        <span style="color:#6b7280;">${c.seats}</span>
+        <span style="font-weight:600;color:#1e293b;">${c.progress}% Complete</span>
       </div>
     </div>
   `).join('');
 }
+
 
 function renderFaculty() {
   const grid = document.getElementById('faculty-grid');
