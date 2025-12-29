@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Courses | E-College</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-badge">E</div>
+      <span class="logo-text">E-College</span>
+    </div>
+    <nav class="top-nav">
+      <a href="dashboard.html" class="nav-link">Dashboard</a>
+      <a href="students.html" class="nav-link">Students</a>
+      <a href="courses.html" class="nav-link active">Courses</a>
+      <a href="faculty.html" class="nav-link">Faculty</a>
+      <a href="settings.html" class="nav-link">Settings</a>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="page-header row-between">
+      <div>
+        <h1 class="page-title">Courses</h1>
+        <p class="page-subtitle">Manage courses and enrollment</p>
+      </div>
+      <button class="btn primary add-btn" data-page="courses" data-target="course-modal">+ Add New Course</button>
+    </div>
+
+    <div class="toolbar row-between">
+      <input class="field-input" placeholder="🔍 Search courses..." id="course-search" style="max-width:300px;">
+      <select class="field-input" style="max-width:200px;">
+        <option>All Departments</option>
+        <option>Computer Science</option>
+        <option>Mathematics</option>
+        <option>Physics</option>
+      </select>
+    </div>
+
+    <div id="courses-grid" class="card-grid"></div>
+  </main>
+
+  <!-- Course Modal -->
+  <div id="course-modal" class="modal">
+    <div class="modal-overlay"></div>
+    <div class="modal-content">
+      <button class="close-modal">×</button>
+      <h2>Add New Course</h2>
+      <form id="course-form">
+        <div class="form-group">
+          <label>Course Name</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+          <label>Course Code</label>
+          <input type="text" name="code" required>
+        </div>
+        <div class="form-group">
+          <label>Department</label>
+          <select name="dept" required>
+            <option>CS</option><option>Math</option><option>Physics</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Faculty</label>
+          <input type="text" name="faculty" required>
+        </div>
+        <div class="form-group row-between">
+          <label>Total Seats</label>
+          <input type="number" name="seats" required style="max-width:120px;">
+        </div>
+        <div class="form-actions">
+          <button type="button" class="btn ghost" onclick="hideModal()">Cancel</button>
+          <button type="submit" class="btn primary">Add Course</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
